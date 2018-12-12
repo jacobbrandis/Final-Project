@@ -3,22 +3,22 @@
 # now available in github
 
 '''
-Curious, Creative, Tenacious(requires hopefulness)
+Curious, Creative, Tenacious(requires hopefulness) and Perseverance
 
 **********Gameplay ideas:
-Make a bad powerup that will slow the players mobility and make their jump height less for 5 seconds
+Make a bad powerup that will slow the players mobility and make their jump height less for 5 seconds.
+Also make a way to go down steps by pressing s
 
 **********Cosmetics
-New sprites?
+New hazard that is a spikey guy. New background that is a pink color. New Player color. New platfrom color.
+New title screen. New title text. New background music.
 
 **********Bugs
-None at the moment
-
-**********Gameplay fixes
-None
+Small issue when falling into a spikey guy. It doesn't do anything sometimes, but for the most part, it will
+make the player sprite shoot downward.
 
 **********Features
-Varied powerups
+Added new hazard. New cosmetics. New falling feature when pressing s. New background music.
 '''
 import pygame as pg
 import random
@@ -197,13 +197,14 @@ class Game:
                 self.boost_sound.play()
                 self.player.vel.y = -BOOST_POWER
                 self.player.jumping = False
-        # if a player hits a bad power up
+        # if a player hits a Spikey Guy
         bad_pow_hits = pg.sprite.spritecollide(self.player, self.badpowerup, True)
         for pow in bad_pow_hits:
             if pow.type == 'badboost':  
                 self.boost_sound.play()
                 self.player.vel.y = -BAD_POWER
                 self.player.jumping = False
+            
                    
         cacti_hits = pg.sprite.spritecollide(self.player, self.cacti, False)
         if cacti_hits:    
@@ -250,8 +251,15 @@ class Game:
                     if event.key == pg.K_p:
                         """ pause """
                         self.paused = True
-                
-    ##### DRAW METHOD
+                if event.type == pg.K_s:
+                    if event.key == pg.K_s:
+                        self.player.fall()
+                if event.type == pg.K_s:
+                    if event.key == pg.K_s:
+                        """ # cuts the fall short if the space bar is released """
+                        self.player.fall_tap()
+
+    ##### DRAW METHOD 
     def draw(self):
         self.screen.fill(SKY_BLUE)
         self.all_sprites.draw(self.screen)
@@ -274,9 +282,9 @@ class Game:
     ##### SHOW START SCREEN METHOD
     def show_start_screen(self):
         """ # game splash screen """
-        self.screen.fill(BLACK)
+        self.screen.fill(BLUEISH)
         self.draw_text(TITLE, 48, WHITE, WIDTH/2, HEIGHT/4)
-        self.draw_text("WASD to move, Space to jump", 22, WHITE, WIDTH/2, HEIGHT/2)
+        self.draw_text("WASD to move, Space to jump, Don't hit the spikey guys!", 22, WHITE, WIDTH/2, HEIGHT/2)
         self.draw_text("Press any key to play...", 22, WHITE, WIDTH / 2, HEIGHT * 3/4)
         self.draw_text("High score " + str(self.highscore), 22, WHITE, WIDTH / 2, 15)
         pg.display.flip()
@@ -287,9 +295,9 @@ class Game:
         if not self.running:
             print("not running...")
             return
-        self.screen.fill(BLACK)
+        self.screen.fill(BLUEISH)
         self.draw_text(TITLE, 48, WHITE, WIDTH/2, HEIGHT/4)
-        self.draw_text("WASD to move, Space to jump", 22, WHITE, WIDTH/2, HEIGHT/2)
+        self.draw_text("WASD to move, Space to jump, Don't hit the spikey guys!", 22, WHITE, WIDTH/2, HEIGHT/2)
         self.draw_text("Press any key to play...", 22, WHITE, WIDTH / 2, HEIGHT * 3/4)
         self.draw_text("High score " + str(self.highscore), 22, WHITE, WIDTH / 2, HEIGHT/2 + 40)
         if self.score > self.highscore:
@@ -307,7 +315,7 @@ class Game:
     ##### DRAW TEXT METHOD
     def draw_text(self, text, size, color, x, y):
         font = pg.font.Font(self.font_name, size)
-        text_surface = font.render(text, True, color)
+        text_surface = font.render(text, True, color) 
         text_rect = text_surface.get_rect()
         text_rect.midtop = (x, y)
         self.screen.blit(text_surface, text_rect)

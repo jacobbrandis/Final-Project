@@ -1,14 +1,15 @@
-TITLE = "jumpy"
+TITLE = "JUMPING GAME"
 # screen dims
 WIDTH = 480
 HEIGHT = 600
 # frames per second
 FPS = 60
 # colors
-WHITE = (255, 255, 255)
+WHITE = (153, 153, 255)
 BLACK = (0,0,0)
+BLUEISH = (26, 26, 255)
 REDDISH = (240,55,66)
-SKY_BLUE = (143, 185, 252)
+SKY_BLUE = (230, 153, 255)
 FONT_NAME = 'arial'
 SPRITESHEET = "spritesheet_jumper.png"
 SPRITESHEET2 = "spritesheet.png"
@@ -43,9 +44,9 @@ PLATFORM_LIST = [(0, HEIGHT - 40, WIDTH, 40),
                  (200, HEIGHT - 450, WIDTH-350, 40)]
 '''
 PLATFORM_LIST = [(0, HEIGHT-40),
-                (50, HEIGHT-40),
-                (100, HEIGHT-40),
-                (150, HEIGHT-40),
+                # (50, HEIGHT-40),
+                # (100, HEIGHT-40),
+                # (150, HEIGHT-40),
                  (65, HEIGHT - 300),
                  (20, HEIGHT - 350),
                  (200, HEIGHT - 150),

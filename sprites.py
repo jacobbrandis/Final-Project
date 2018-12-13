@@ -200,6 +200,8 @@ class Platform(Sprite):
             Cactus(self.game, self)
         if random.randrange(100) < POW_SPAWN_PCT:
             BadPow(self.game, self)
+        if random.randrange(100) < POW_SPAWN_PCT:
+            Mushroom(self.game, self)
 class Pow(Sprite):
     def __init__(self, game, plat):
         # allows layering in LayeredUpdates sprite group
@@ -290,7 +292,7 @@ class Cactus(Sprite):
         Sprite.__init__(self, self.groups)
         self.game = game
         self.plat = plat
-        self.image = self.game.spritesheet.get_image(707,134,117,160)
+        self.image = self.game.spritesheet.get_image(707, 134, 117, 160)
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.centerx = self.plat.rect.centerx
@@ -300,3 +302,24 @@ class Cactus(Sprite):
         # checks to see if plat is in the game's platforms group so we can kill the powerup instance
         if not self.game.platforms.has(self.plat):
             self.kill()
+
+class Mushroom(Sprite):
+    def __init__(self, game, plat):
+        # allows layering in LayeredUpdates sprite group
+        self._layer = POW_LAYER
+        # add a groups property where we can pass all instances of this object into game groups
+        self.groups = game.all_sprites, game.mush
+        Sprite.__init__(self, self.groups)
+        self.game = game
+        self.plat = plat
+        self.image = self.game.spritesheet.get_image(812, 453, 81, 99)
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.centerx = self.plat.rect.centerx
+        self.rect.bottom = self.plat.rect.top - 5
+    def update(self):
+        self.rect.bottom = self.plat.rect.top - 5
+        # checks to see if plat is in the game's platforms group so we can kill the powerup instance
+        if not self.game.platforms.has(self.plat):
+            self.kill()
+

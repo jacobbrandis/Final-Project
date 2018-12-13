@@ -11,14 +11,14 @@ Also make a way to go down steps by pressing s
 
 **********Cosmetics
 New hazard that is a spikey guy. New background that is a pink color. New Player color. New platfrom color.
-New title screen. New title text. New background music.
+New title screen. New title text. New background music. New mushroom cosemtic.
 
 **********Bugs
 Small issue when falling into a spikey guy. It doesn't do anything sometimes, but for the most part, it will
 make the player sprite shoot downward.
 
 **********Features
-Added new hazard. New cosmetics. New falling feature when pressing s. New background music.
+Added new hazard. New cosmetics. New falling feature when pressing s. New background music. Added mushroom cosmetic.
 '''
 import pygame as pg
 import random
@@ -82,7 +82,7 @@ class Game:
         self.all_sprites = pg.sprite.LayeredUpdates()
         # create platforms group
         self.platforms = pg.sprite.Group()
-        # create clouds group
+        # create clouds group 
         self.clouds = pg.sprite.Group()
         # add powerups
         self.powerups = pg.sprite.Group()
@@ -90,6 +90,8 @@ class Game:
         self.badpowerup = pg.sprite.Group()
         # add cacti
         self.cacti = pg.sprite.Group()
+        #add mushroom
+        self.mush = pg.sprite.Group()
         
         self.mob_timer = 0
         # add a player 1 to the group
@@ -261,7 +263,7 @@ class Game:
 
     ##### DRAW METHOD 
     def draw(self):
-        self.screen.fill(SKY_BLUE)
+        self.screen.fill(PINK)
         self.all_sprites.draw(self.screen)
         """ # not needed now that we're using LayeredUpdates """
         # self.screen.blit(self.player.image, self.player.rect)

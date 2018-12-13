@@ -9,7 +9,7 @@ WHITE = (153, 153, 255)
 BLACK = (0,0,0)
 BLUEISH = (26, 26, 255)
 REDDISH = (240,55,66)
-SKY_BLUE = (230, 153, 255)
+PINK = (230, 153, 255)
 FONT_NAME = 'arial'
 SPRITESHEET = "spritesheet_jumper.png"
 SPRITESHEET2 = "spritesheet.png"
@@ -24,7 +24,7 @@ PLAYER_JUMP = 20
 BOOST_POWER = 60
 BAD_POWER = -25
 FALL_POWER = -24
-BAD_SPAWN_PCT = 7
+BAD_SPAWN_PCT = 5
 POW_SPAWN_PCT = 7
 MOB_FREQ = 500
 # layers - uses numerical value in layered sprites
@@ -44,9 +44,6 @@ PLATFORM_LIST = [(0, HEIGHT - 40, WIDTH, 40),
                  (200, HEIGHT - 450, WIDTH-350, 40)]
 '''
 PLATFORM_LIST = [(0, HEIGHT-40),
-                # (50, HEIGHT-40),
-                # (100, HEIGHT-40),
-                # (150, HEIGHT-40),
                  (65, HEIGHT - 300),
                  (20, HEIGHT - 350),
                  (200, HEIGHT - 150),

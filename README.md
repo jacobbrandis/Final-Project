@@ -10,14 +10,14 @@ Also make a way to go down steps by pressing s.
 
 **********Cosmetics
 New hazard that is a spikey guy. New background that is a pink color. New Player color. New platfrom color.
-New title screen. New title text. New background music.
+New title screen. New title text. New background music. New mushroom cosmetic.
 
 **********Bugs
 Small issue when falling into a spikey guy. It doesn't do anything sometimes, but for the most part, it will
 make the player sprite shoot downward.
 
 **********Features
-Added new hazard. New cosmetics. New falling feature when pressing s. New background music.
+Added new hazard. New cosmetics. New falling feature when pressing s. New background music. New mushroom cosmetic.
 
 
 Personal Note:

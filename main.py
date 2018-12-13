@@ -1,6 +1,5 @@
-# this file was created by Chris Cozort
-# Sources: goo.gl/2KMivS - thanks Chris Bradfield!
-# now available in github
+# this file was created by Jacob Brandis and Mr. Cozort
+# Sources: goo.gl/2KMivS - Kids Can Code - Chris Bradfield!
 
 '''
 Curious, Creative, Tenacious(requires hopefulness) and Perseverance

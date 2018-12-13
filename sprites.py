@@ -222,6 +222,7 @@ class Pow(Sprite):
         # checks to see if plat is in the game's platforms group so we can kill the powerup instance
         if not self.game.platforms.has(self.plat):
             self.kill()
+# Added the Spikey Guy sprite
 class BadPow(Sprite):
     def __init__(self, game, plat):
         # allows layering in LayeredUpdates sprite group
@@ -302,7 +303,7 @@ class Cactus(Sprite):
         # checks to see if plat is in the game's platforms group so we can kill the powerup instance
         if not self.game.platforms.has(self.plat):
             self.kill()
-
+# Added the Mushroom Cosmetic
 class Mushroom(Sprite):
     def __init__(self, game, plat):
         # allows layering in LayeredUpdates sprite group

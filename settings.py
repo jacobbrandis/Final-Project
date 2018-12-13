@@ -22,10 +22,12 @@ PLAYER_GRAV = 0.8
 PLAYER_JUMP = 20
 # game settings
 BOOST_POWER = 60
-BAD_POWER = -25
+BAD_POWER = -35
 FALL_POWER = -24
+MUSH_POWER = 30
 BAD_SPAWN_PCT = 5
 POW_SPAWN_PCT = 7
+MUSH_SPAWN_PCT = 7
 MOB_FREQ = 500
 # layers - uses numerical value in layered sprites
 PLAYER_LAYER = 2

@@ -206,7 +206,13 @@ class Game:
                 self.boost_sound.play()
                 self.player.vel.y = -BAD_POWER
                 self.player.jumping = False
-            
+        #if a player hits a mushroom
+        mush_hits = pg.sprite.spritecollide(self.player, self.mush, True)
+        for pow in mush_hits:
+            if pow.type == 'mushboost':
+                self.boost_sound.play()
+                self.player.vel.y = -MUSH_POWER
+                self.player.jumping = False
                    
         cacti_hits = pg.sprite.spritecollide(self.player, self.cacti, False)
         if cacti_hits:    
@@ -285,8 +291,10 @@ class Game:
     def show_start_screen(self):
         """ # game splash screen """
         self.screen.fill(BLUEISH)
-        self.draw_text(TITLE, 48, WHITE, WIDTH/2, HEIGHT/4)
-        self.draw_text("WASD to move, Space to jump, Don't hit the spikey guys!", 22, WHITE, WIDTH/2, HEIGHT/2)
+        self.draw_text(TITLE, 48, WHITE, WIDTH/2, HEIGHT/5.5)
+        self.draw_text("WASD to move, Space to jump", 22, WHITE, WIDTH/2, HEIGHT/1.5)
+        self.draw_text("Don't hit the spikey guys! Jump on the Flying Guys Heads!", 22, WHITE, WIDTH / 2, HEIGHT /2.5)
+        self.draw_text("Run into the Bounce Pad and the Mushroom for a boost!", 22, WHITE, WIDTH / 2, HEIGHT /2)
         self.draw_text("Press any key to play...", 22, WHITE, WIDTH / 2, HEIGHT * 3/4)
         self.draw_text("High score " + str(self.highscore), 22, WHITE, WIDTH / 2, 15)
         pg.display.flip()
@@ -298,8 +306,10 @@ class Game:
             print("not running...")
             return
         self.screen.fill(BLUEISH)
-        self.draw_text(TITLE, 48, WHITE, WIDTH/2, HEIGHT/4)
-        self.draw_text("WASD to move, Space to jump, Don't hit the spikey guys!", 22, WHITE, WIDTH/2, HEIGHT/2)
+        self.draw_text(TITLE, 48, WHITE, WIDTH/2, HEIGHT/5.5)
+        self.draw_text("WASD to move, Space to jump, ", 22, WHITE, WIDTH/2, HEIGHT/1.5)
+        self.draw_text("Don't hit the spikey guys! Jump on the Flying Guys Heads!", 22, WHITE, WIDTH / 2, HEIGHT /2.5)
+        self.draw_text("Run into the Bounce Pad and the Mushroom for a boost!", 22, WHITE, WIDTH / 2, HEIGHT /2)
         self.draw_text("Press any key to play...", 22, WHITE, WIDTH / 2, HEIGHT * 3/4)
         self.draw_text("High score " + str(self.highscore), 22, WHITE, WIDTH / 2, HEIGHT/2 + 40)
         if self.score > self.highscore:
